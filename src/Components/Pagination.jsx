@@ -4,10 +4,11 @@ import { AppContext } from '../Context/AppContext'
 const Pagination = () => {
   const {page, handlePageChange, totalPages}=useContext(AppContext);
   return (
-    <div>
-      <div>
-        {  page>1 && 
-            (<button onClick={() => handlePageChange(page-1)}>
+    <div className='flex w-full item-center justify-center border fixed bottom-0 bg-white'>
+      <div className='flex justify-between w-11/12 max-w-[640px] pb-2 pt-2'>
+      <div className='gap-x-2 flex'>
+      {  page>1 && 
+            (<button className='rounded-md border px-4 py-1' onClick={() => handlePageChange(page-1)}>
               Previous
             </button>)
         }
@@ -15,12 +16,14 @@ const Pagination = () => {
         {
           page<totalPages &&
           (
-            <button onClick={() => handlePageChange(page+1)}>
+            <button  className='rounded-md border px-4 py-1' onClick={() => handlePageChange(page+1)}>
               Next
             </button>
           )
         }
-        <p>
+      </div>
+       
+        <p className='font-bold text-sm'>
           PAGE {page} OF {totalPages}
         </p>
       </div>
